@@ -15,8 +15,8 @@ Soluciona error con *sun.misc.BASE64Encoder* cambiandolo por *java.util.Base64*
 
 
 
+**Maven Dependencias requeridas para usar el jar**
 
-** Maven Dependencias requeridas para usar el jar **
 
 ```
 <dependency>
@@ -42,7 +42,7 @@ Soluciona error con *sun.misc.BASE64Encoder* cambiandolo por *java.util.Base64*
 ```
 
 
-** TODO ** 
+**TODO** 
 
 Fix
 
