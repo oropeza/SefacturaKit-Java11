@@ -2,7 +2,7 @@
 # SefacturaKit Java 11
 
 
-Adaptación del kit de desarrollo original de SeFactura para que sea compatible con Java 11. Solo queria poder reemplazar el .jar sin modificar el código existente. 
+Adaptación personal del kit de desarrollo original de SeFactura para que sea compatible con Java 11. Solo queria poder reemplazar el .jar sin modificar el código existente. No es oficial. 
 
 
 * Se decompiló en <http://www.decompiler.com/>
