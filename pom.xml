@@ -28,28 +28,26 @@
 		</dependency>
 		
 		
+		<!-- SeFactura -->
+	
 		<dependency>
-			<groupId>javax.xml.bind</groupId>
-			<artifactId>jaxb-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.xml.ws/jaxws-api -->
-		<dependency>
-			<groupId>javax.xml.ws</groupId>
-			<artifactId>jaxws-api</artifactId>
-			<version>2.3.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/javax.jws/javax.jws-api -->
-		<dependency>
-			<groupId>javax.jws</groupId>
-			<artifactId>javax.jws-api</artifactId>
-			<version>1.1</version>
+		    <groupId>jakarta.jws</groupId>
+		    <artifactId>jakarta.jws-api</artifactId>
+		    <version>2.1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.sun.xml.ws</groupId>
-			<artifactId>rt</artifactId>
-			<version>2.3.1</version>
-		</dependency>
+            <groupId>jakarta.xml.ws</groupId>
+            <artifactId>jakarta.xml.ws-api</artifactId>
+            <version>2.3.3</version>
+       </dependency>
+       <dependency>
+		    <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>2.3.3</version>
+            <scope>runtime</scope>
+	   </dependency>
+
+		
 	</dependencies>
 
 	<build>

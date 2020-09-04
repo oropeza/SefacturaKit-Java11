@@ -20,24 +20,20 @@ Soluciona error con *sun.misc.BASE64Encoder* cambiandolo por *java.util.Base64*
 
 ```
 <dependency>
-	<groupId>javax.xml.bind</groupId>
-	<artifactId>jaxb-api</artifactId>
-	<version>2.3.1</version>
+    <groupId>jakarta.jws</groupId>
+    <artifactId>jakarta.jws-api</artifactId>
+    <version>2.1.0</version>
 </dependency>
 <dependency>
-	<groupId>javax.xml.ws</groupId>
-	<artifactId>jaxws-api</artifactId>
-	<version>2.3.1</version>
-</dependency>
-<dependency>
-	<groupId>javax.jws</groupId>
-	<artifactId>javax.jws-api</artifactId>
-	<version>1.1</version>
+    <groupId>jakarta.xml.ws</groupId>
+    <artifactId>jakarta.xml.ws-api</artifactId>
+    <version>2.3.3</version>
 </dependency>
 <dependency>
 	<groupId>com.sun.xml.ws</groupId>
-	<artifactId>rt</artifactId>
-	<version>2.3.1</version>
+    <artifactId>jaxws-rt</artifactId>
+    <version>2.3.3</version>
+    <scope>runtime</scope>
 </dependency>
 ```
 
@@ -49,3 +45,11 @@ Fix
 ```
 javax.xml.ws.WebServiceException: Provider com.sun.xml.internal.ws.spi.ProviderImpl not found
 ```
+
+
+
+**Referencias**  
+
+Jakarta XML Web Services  
+<https://eclipse-ee4j.github.io/metro-jax-ws/>  
+<https://eclipse-ee4j.github.io/jaxb-ri/>
