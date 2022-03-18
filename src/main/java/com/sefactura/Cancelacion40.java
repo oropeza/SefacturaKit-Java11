@@ -6,19 +6,19 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-   name = "cancelacion",
+   name = "cancelacion40",
    propOrder = {"solicitud", "usuario", "clave"}
 )
-public class Cancelacion {
-   protected SolCancelacion solicitud;
+public class Cancelacion40 {
+   protected SolCancelacion40 solicitud;
    protected String usuario;
    protected String clave;
 
-   public SolCancelacion getSolicitud() {
+   public SolCancelacion40 getSolicitud() {
       return this.solicitud;
    }
 
-   public void setSolicitud(SolCancelacion value) {
+   public void setSolicitud(SolCancelacion40 value) {
       this.solicitud = value;
    }
 

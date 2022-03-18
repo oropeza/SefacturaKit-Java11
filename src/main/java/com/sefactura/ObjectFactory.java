@@ -9,23 +9,23 @@ import javax.xml.namespace.QName;
 public class ObjectFactory {
    private static final QName _TimbradoResponse_QNAME = new QName("http://sefactura.com", "timbradoResponse");
    private static final QName _Timbrado_QNAME = new QName("http://sefactura.com", "timbrado");
-   private static final QName _CancelacionResponse_QNAME = new QName("http://sefactura.com", "cancelacionResponse");
-   private static final QName _Cancelacion_QNAME = new QName("http://sefactura.com", "cancelacion");
+   private static final QName _Cancelacion40Response_QNAME = new QName("http://sefactura.com", "cancelacion40Response");
+   private static final QName _Cancelacion40_QNAME = new QName("http://sefactura.com", "cancelacion40");
 
-   public SolCancelacion createSolCancelacion() {
-      return new SolCancelacion();
+   public SolCancelacion40 createSolCancelacion40() {
+      return new SolCancelacion40();
    }
 
    public TimbradoResponse createTimbradoResponse() {
       return new TimbradoResponse();
    }
 
-   public Cancelacion createCancelacion() {
-      return new Cancelacion();
+   public Cancelacion40 createCancelacion40() {
+      return new Cancelacion40();
    }
 
-   public CancelacionResponse createCancelacionResponse() {
-      return new CancelacionResponse();
+   public Cancelacion40Response createCancelacion40Response() {
+      return new Cancelacion40Response();
    }
 
    public Resultado createResultado() {
@@ -54,17 +54,17 @@ public class ObjectFactory {
 
    @XmlElementDecl(
       namespace = "http://sefactura.com",
-      name = "cancelacionResponse"
+      name = "cancelacion40Response"
    )
-   public JAXBElement<CancelacionResponse> createCancelacionResponse(CancelacionResponse value) {
-      return new JAXBElement(_CancelacionResponse_QNAME, CancelacionResponse.class, (Class)null, value);
+   public JAXBElement<Cancelacion40Response> createCancelacion40Response(Cancelacion40Response value) {
+      return new JAXBElement(_Cancelacion40Response_QNAME, Cancelacion40Response.class, (Class)null, value);
    }
 
    @XmlElementDecl(
       namespace = "http://sefactura.com",
-      name = "cancelacion"
+      name = "cancelacion40"
    )
-   public JAXBElement<Cancelacion> createCancelacion(Cancelacion value) {
-      return new JAXBElement(_Cancelacion_QNAME, Cancelacion.class, (Class)null, value);
+   public JAXBElement<Cancelacion40> createCancelacion40(Cancelacion40 value) {
+      return new JAXBElement(_Cancelacion40_QNAME, Cancelacion40.class, (Class)null, value);
    }
 }

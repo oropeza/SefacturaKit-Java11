@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
+
 import com.sefactura.pac.client.RespuestaTimbrado;
 import com.sefactura.pac.client.Sefactura;
 
@@ -102,4 +103,46 @@ public class SefacturaKitTest
 			e.printStackTrace();			
 		}
     }
+    
+
+    
+	public static void main(String[] args) {
+     
+		
+		
+		System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
+		System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
+		System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
+		System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
+		System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999999");
+		System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dumpTreshold", "999999999");
+		
+		
+		
+		
+		//String cer = "C:\\norisis\\SaraLuisa\\sat\\certificados\\EWE1709045U0.cer";
+		//String key = "C:\\norisis\\SaraLuisa\\sat\\certificados\\EWE1709045U0.key";
+		String cer = "C:\\norisis\\oropeza\\sat\\certificados\\00001000000511930122.cer";
+		String key = "C:\\norisis\\oropeza\\sat\\certificados\\CSD_Principal_SAOC831229NRA_20220315_185503.key";
+		
+		
+        //mt.timbra(VentaDao.consultaPedidoPorId(15));
+		//mt.cancelar40("0C8213DD-5D84-48BB-BCA3-5777C9CA890A", key, cer , "12345678a");
+		
+		String uuid = "61AA40C6-9CF9-420C-9F66-235943315404";
+		String password =  "uufekxkc";
+		
+		String motivo = "02";
+		String referencia = null;
+		
+		Sefactura sf = new Sefactura("http://www.sefactura.com.mx","saoc831229nra","saoc831229nra");
+	 	try {
+			String res = sf.cancela40(uuid,motivo,referencia,key,cer,password);
+			System.out.println(res);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
 }

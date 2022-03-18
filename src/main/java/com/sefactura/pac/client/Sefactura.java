@@ -1,12 +1,14 @@
 package com.sefactura.pac.client;
 
+import com.sefactura.FolioCancelacion;
 import com.sefactura.Resultado;
-import com.sefactura.SolCancelacion;
+import com.sefactura.SolCancelacion40;
 import com.sefactura.TimbradoService;
 import com.sefactura.TimbradoServiceService;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Base64;
 
 import javax.swing.ImageIcon;
@@ -71,26 +73,29 @@ public class Sefactura {
       return baos.toByteArray();
    }
 
-   public String cancela(String uuid, String archivoKey, String archivoCer, String pwd) throws Exception {
-      URL wsdlLocation = new URL(this.host + "sefacturapac/TimbradoService?wsdl");
-      QName serviceName = new QName("http://sefactura.com", "TimbradoServiceService");
-      TimbradoServiceService svc = new TimbradoServiceService(wsdlLocation, serviceName);
-      TimbradoService port = svc.getTimbradoServicePort();
-      SolCancelacion sol = new SolCancelacion();
-      byte[] llaveEmi = this.leeArchivo(archivoKey);
-      byte[] cerEmi = this.leeArchivo(archivoCer);
-      
-      
-      
-      // Encoder Fix
-      String certificado =  Base64.getEncoder().encodeToString(cerEmi);
-      String llave =  Base64.getEncoder().encodeToString(llaveEmi);
-      String ciphertextString =  Base64.getEncoder().encodeToString(pwd.getBytes("UTF-8"));
-      
-      sol.setCertificado(certificado);
-      sol.setLlavePrivada(llave);
-      sol.setPassword(ciphertextString);
-      sol.getUuid().add(uuid);
-      return port.cancelacion(sol, this.usuario, this.clave);
-   }
+ 
+   
+   public String cancela40(String uuid, String motivo, String folioSustitucion,String archivoKey, String archivoCer, String pwd) throws Exception {
+	      URL wsdlLocation = new URL(this.host + "sefacturapac/TimbradoService?wsdl");
+	      QName serviceName = new QName("http://sefactura.com", "TimbradoServiceService");
+	      TimbradoServiceService svc = new TimbradoServiceService(wsdlLocation, serviceName);
+	      TimbradoService port = svc.getTimbradoServicePort();
+	      SolCancelacion40 sol = new SolCancelacion40();
+	      byte[] llaveEmi = this.leeArchivo(archivoKey);
+	      byte[] cerEmi = this.leeArchivo(archivoCer);
+	      	      
+	      
+	      // Encoder Fix
+	      String certificado =  Base64.getEncoder().encodeToString(cerEmi);
+	      String llave =  Base64.getEncoder().encodeToString(llaveEmi);
+	      String ciphertextString =  Base64.getEncoder().encodeToString(pwd.getBytes("UTF-8"));
+	      
+	      sol.setCertificado(certificado);
+	      sol.setLlavePrivada(llave);
+	      sol.setPassword(ciphertextString);
+	      sol.setFolios(new ArrayList<FolioCancelacion>());
+	      sol.getFolios().add(new FolioCancelacion(uuid,motivo,folioSustitucion));
+	      	      	    
+	      return port.cancelacion40(sol, this.usuario, this.clave);
+	   }   
 }

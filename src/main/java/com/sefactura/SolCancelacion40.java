@@ -5,21 +5,25 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-   name = "solCancelacion",
-   propOrder = {"certificado", "llavePrivada", "password", "uuid"}
+   name = "solCancelacion40",
+   propOrder = {"certificado", "llavePrivada", "password", "folios"}
 )
-public class SolCancelacion {
+public class SolCancelacion40 {
    protected String certificado;
    protected String llavePrivada;
    protected String password;
+   
+   
    @XmlElement(
-      nillable = true
+      nillable = false
+      
    )
-   protected List<String> uuid;
+   protected List<FolioCancelacion> folios;
 
    public String getCertificado() {
       return this.certificado;
@@ -45,11 +49,15 @@ public class SolCancelacion {
       this.password = value;
    }
 
-   public List<String> getUuid() {
-      if (this.uuid == null) {
-         this.uuid = new ArrayList();
-      }
+public List<FolioCancelacion> getFolios() {
+	return folios;
+}
 
-      return this.uuid;
-   }
+public void setFolios(List<FolioCancelacion> folios) {
+	this.folios = folios;
+}
+
+
+   
+   
 }

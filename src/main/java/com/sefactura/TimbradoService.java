@@ -14,22 +14,25 @@ import javax.xml.ws.ResponseWrapper;
 )
 @XmlSeeAlso({ObjectFactory.class})
 public interface TimbradoService {
+
+	
    @WebMethod
    @WebResult(
       targetNamespace = ""
    )
    @RequestWrapper(
-      localName = "cancelacion",
+      localName = "cancelacion40",
       targetNamespace = "http://sefactura.com",
-      className = "com.sefactura.Cancelacion"
+      className = "com.sefactura.Cancelacion40"
    )
    @ResponseWrapper(
-      localName = "cancelacionResponse",
+      localName = "cancelacion40Response",
       targetNamespace = "http://sefactura.com",
-      className = "com.sefactura.CancelacionResponse"
+      className = "com.sefactura.Cancelacion40Response"
    )
-   String cancelacion(@WebParam(name = "solicitud",targetNamespace = "") SolCancelacion var1, @WebParam(name = "usuario",targetNamespace = "") String var2, @WebParam(name = "clave",targetNamespace = "") String var3);
-
+   String cancelacion40(@WebParam(name = "solicitud",targetNamespace = "") SolCancelacion40 var1, @WebParam(name = "usuario",targetNamespace = "") String var2, @WebParam(name = "clave",targetNamespace = "") String var3);   
+   
+   
    @WebMethod
    @WebResult(
       targetNamespace = ""

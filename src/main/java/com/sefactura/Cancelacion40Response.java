@@ -7,10 +7,10 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(
-   name = "cancelacionResponse",
+   name = "cancelacion40Response",
    propOrder = {"_return"}
 )
-public class CancelacionResponse {
+public class Cancelacion40Response {
    @XmlElement(
       name = "return"
    )
