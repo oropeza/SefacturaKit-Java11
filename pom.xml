@@ -33,19 +33,21 @@
 		<dependency>
 		    <groupId>jakarta.jws</groupId>
 		    <artifactId>jakarta.jws-api</artifactId>
-		    <version>2.1.0</version>
+		    <version>3.0.0</version>
 		</dependency>
 		<dependency>
             <groupId>jakarta.xml.ws</groupId>
             <artifactId>jakarta.xml.ws-api</artifactId>
-            <version>2.3.3</version>
+            <version>3.0.1</version>
        </dependency>
-       <dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-rt -->
+		<dependency>
 		    <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-rt</artifactId>
-            <version>2.3.3</version>
-            <scope>runtime</scope>
-	   </dependency>
+		    <artifactId>jaxws-rt</artifactId>
+		    <version>3.0.2</version>
+		</dependency>
+       
+    
 
 		
 	</dependencies>
