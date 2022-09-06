@@ -73,17 +73,50 @@ public class Sefactura {
       return baos.toByteArray();
    }
 
+<<<<<<< Updated upstream
  
    
    public String cancela40(String uuid, String motivo, String folioSustitucion,String archivoKey, String archivoCer, String pwd) throws Exception {
+=======
+   public String cancela(String uuid, String archivoKey, String archivoCer, String pwd) throws Exception {
+      URL wsdlLocation = new URL(this.host + "sefacturapac/TimbradoService?wsdl");
+      QName serviceName = new QName("http://sefactura.com", "TimbradoServiceService");
+      TimbradoServiceService svc = new TimbradoServiceService(wsdlLocation, serviceName);
+      TimbradoService port = svc.getTimbradoServicePort();
+      SolCancelacion sol = new SolCancelacion();
+      byte[] llaveEmi = this.leeArchivo(archivoKey);
+      byte[] cerEmi = this.leeArchivo(archivoCer);
+      
+      
+      
+      // Encoder Fix
+      String certificado =  Base64.getEncoder().encodeToString(cerEmi);
+      String llave =  Base64.getEncoder().encodeToString(llaveEmi);
+      String ciphertextString =  Base64.getEncoder().encodeToString(pwd.getBytes("UTF-8"));
+      
+      sol.setCertificado(certificado);
+      sol.setLlavePrivada(llave);
+      sol.setPassword(ciphertextString);
+      sol.getUuid().add(uuid);
+      return port.cancelacion(sol, this.usuario, this.clave);
+   }
+   public String cancela(String uuid,byte[] cerEmi, byte[] llaveEmi, String pwd) throws Exception {
+>>>>>>> Stashed changes
 	      URL wsdlLocation = new URL(this.host + "sefacturapac/TimbradoService?wsdl");
 	      QName serviceName = new QName("http://sefactura.com", "TimbradoServiceService");
 	      TimbradoServiceService svc = new TimbradoServiceService(wsdlLocation, serviceName);
 	      TimbradoService port = svc.getTimbradoServicePort();
+<<<<<<< Updated upstream
 	      SolCancelacion40 sol = new SolCancelacion40();
 	      byte[] llaveEmi = this.leeArchivo(archivoKey);
 	      byte[] cerEmi = this.leeArchivo(archivoCer);
 	      	      
+=======
+	      SolCancelacion sol = new SolCancelacion();
+	      
+	      
+	      
+>>>>>>> Stashed changes
 	      
 	      // Encoder Fix
 	      String certificado =  Base64.getEncoder().encodeToString(cerEmi);
@@ -93,9 +126,15 @@ public class Sefactura {
 	      sol.setCertificado(certificado);
 	      sol.setLlavePrivada(llave);
 	      sol.setPassword(ciphertextString);
+<<<<<<< Updated upstream
 	      sol.setFolios(new ArrayList<FolioCancelacion>());
 	      sol.getFolios().add(new FolioCancelacion(uuid,motivo,folioSustitucion));
 	      	      	    
 	      return port.cancelacion40(sol, this.usuario, this.clave);
 	   }   
+=======
+	      sol.getUuid().add(uuid);
+	      return port.cancelacion(sol, this.usuario, this.clave);
+	   }
+>>>>>>> Stashed changes
 }
